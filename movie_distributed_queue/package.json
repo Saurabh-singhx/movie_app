@@ -1,0 +1,15 @@
+{
+  
+  "scripts": {
+    "dev":"node src/worker/worker.js",
+    "start": "node dist/workers/movie.worker.js"
+  },
+
+  "type": "module",
+  "dependencies": {
+    "bullmq": "^5.66.4",
+    "dotenv": "^17.2.3",
+    "ioredis": "^5.9.1",
+    "mongoose": "^9.1.2"
+  }
+}
