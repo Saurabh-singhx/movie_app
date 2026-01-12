@@ -33,32 +33,27 @@ export const protectRoute = async (req, res, next) => {
     }
 }
 
-export const validate = (req,res,next) => {
+
+export const validate = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    const formattedErrors = {};
+    const firstError = errors.array()[0]; // take only the first error
+    const formattedError = {};
 
-    for (const err of errors.array()) {
-      if ("path" in err) {
-        const fieldError = err ;
-
-        if (!formattedErrors[fieldError.path]) {
-          formattedErrors[fieldError.path] = fieldError.msg;
-        }
-      }
+    if ("path" in firstError) {
+      formattedError[firstError.path] = firstError.msg;
     }
 
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
-      errors: formattedErrors,
+      errors: formattedError,
     });
-    
-    return;
   }
 
   next();
 };
+
 
 export const AdminprotectRoute = async (req, res, next) => {
 

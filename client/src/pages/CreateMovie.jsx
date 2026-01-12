@@ -81,7 +81,7 @@ function createMovie() {
                         <img
                             src={formData.coverImageUrl}
                             alt="movie image"
-                            className="w-80 rounded-3xl object-cover"
+                            className="w-80 h-80 rounded-3xl object-cover"
                         />
                     </div>
 
@@ -146,7 +146,6 @@ function createMovie() {
                             onChange={handleChange}
                             error={!!errors.coverImageUrl}
                             helperText={errors.coverImageUrl}
-                            fullWidth
                         />
 
                         <Button variant="contained" type="submit" className="self-start">
