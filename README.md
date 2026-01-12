@@ -65,6 +65,11 @@ npm install
 # Run frontend
 npm run dev
 
+
+# Go back to project root
+cd ..
+
+
 # Go to worker folder
 cd movie_distributed_queue
 
