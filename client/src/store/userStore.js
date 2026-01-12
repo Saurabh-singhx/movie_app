@@ -9,6 +9,7 @@ export const useUserStore = create((set, get) => ({
     isLoading: false,
     nextCursor: null,
     isSearching: false,
+    viewMovieData:null,
 
     getAllMovies: async () => {
         const { nextCursor, movieData } = get();
@@ -141,6 +142,12 @@ export const useUserStore = create((set, get) => ({
     clearMovieData: () => {
         set({ movieData: [] });
         set({ nextCursor: null })
+    },
+
+    setViewMovieData:(data)=>{
+        set({viewMovieData:data})
+        set({movieData:[]})
+        set({nextCursor:null})
     },
 
     searchMovies: async (data) => {

@@ -3,11 +3,12 @@ import { Info, SquarePen, Trash2 } from "lucide-react"
 import { useAuthStore } from '../store/authStore'
 import { useNavigate } from 'react-router-dom'
 import { useAdminStore } from '../store/adminStore';
+import { useUserStore } from '../store/userStore';
 function MovieCard({ movie, index }) {
     const navigate = useNavigate();
     const { authUser } = useAuthStore()
     const{setEditData,isDeleting,deleteMovie} = useAdminStore();
-
+    const {setViewMovieData} = useUserStore();
 
 
     const handleEditData = ()=>{
@@ -17,6 +18,11 @@ function MovieCard({ movie, index }) {
 
     const handleDelete = ()=>{
         deleteMovie(movie._id)
+    }
+
+    const handleMovieDetailsView =()=>{       
+        setViewMovieData(movie);
+        navigate("/movieview")
     }
 
     return (
@@ -46,7 +52,9 @@ function MovieCard({ movie, index }) {
                     </button>)
                 }
 
-                <button type="button">
+                <button 
+                onClick={handleMovieDetailsView}
+                type="button">
                     <Info className="cursor-pointer hover:text-blue-500" />
                 </button>
 
