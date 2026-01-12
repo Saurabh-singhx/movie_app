@@ -119,7 +119,7 @@ export const useUserStore = create((set, get) => ({
         set({ isLoading: true });
 
         try {
-            const res = await axiosInstance.get("/api/user/movie/sorted/rating", {
+            const res = await axiosInstance.get("/api/user/movie/sorted/duration", {
                 params: {
                     limit: 10,
                     ...(nextCursor && { lastId: nextCursor })

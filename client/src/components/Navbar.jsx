@@ -62,10 +62,6 @@ function Navbar() {
 
     }
 
-
-
-
-
     useEffect(() => {
         const timer = setTimeout(() => {
             searchMovies(searchInput);
@@ -80,7 +76,7 @@ function Navbar() {
     }
 
     return (
-        <div className='flex justify-between w-full items-center min-h-20 border-b border-b-indigo-900 px-2 gap-2'>
+        <div className='flex justify-between w-full items-center min-h-20 border-b-2 shadow-blue-100 shadow border-b-indigo-100 px-2 gap-2'>
             <div
                 onClick={() => navigate("/")}
                 className="cursor-pointer font-bold sm:hidden ">

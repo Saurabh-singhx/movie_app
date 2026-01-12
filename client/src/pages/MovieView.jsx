@@ -2,10 +2,11 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useUserStore } from '../store/userStore'
 import { Typography, Divider } from '@mui/material'
+import { formatDuration } from '../lib/utils'
 
 function MovieView() {
     const { viewMovieData } = useUserStore()
-
+    
     return (
         <div className="flex flex-col h-screen w-full">
             <Navbar />
@@ -62,7 +63,7 @@ function MovieView() {
                                 Duration
                             </Typography>
                             <Typography>
-                                {viewMovieData.movie_duration} minutes
+                                {formatDuration(viewMovieData.movie_duration)}
                             </Typography>
                         </div>
                     </div>

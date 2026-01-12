@@ -70,7 +70,7 @@ function Signup() {
 
     return (
         <div className="h-screen w-screen flex items-center justify-center">
-            <div className="w-96 lg:w-[30%] md:w-[50%] rounded-2xl shadow-xl p-8 flex flex-col gap-10">
+            <div className="w-96 lg:w-[30%] md:w-[50%] rounded-2xl shadow-xl p-8 flex flex-col gap-10 border border-blue-100">
                 <h2 className="text-2xl font-semibold text-center">
                     Create Account
                 </h2>

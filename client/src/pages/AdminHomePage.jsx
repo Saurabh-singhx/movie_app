@@ -41,6 +41,17 @@ function AdminHomePage() {
   const handleSeeMore = async () => {
     await getAllMovies();
   }
+
+  if (isLoading && movieData.length === 0) {
+    return (
+      <div className='flex h-screen w-screen items-center justify-center'>
+        <Box sx={{ display: 'flex', alignItems: "center" }}>
+          <CircularProgress size={50} />
+        </Box>
+      </div>
+
+    );
+  }
   return (
     <div className="h-[90vh] flex flex-col">
 
@@ -58,7 +69,7 @@ function AdminHomePage() {
             >
               <MenuItem value={"rating"}>rating</MenuItem>
               <MenuItem value={"Name"}>name</MenuItem>
-              
+
               <MenuItem value={"release date"}>release</MenuItem>
               <MenuItem value={"duration"}>duration</MenuItem>
             </Select>
