@@ -7,37 +7,50 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import { MicVocal } from 'lucide-react';
 
 function UserHomePage() {
-   const [age, setAge] = React.useState('');
-  const { movieData, isLoading, getAllMovies, nextCursor,clearMovieData,getAllMoviesByName,getAllMoviesByRating,getAllMoviesByRelease,getAllMoviesByDuration} = useUserStore();
+  const [age, setAge] = React.useState('');
+  const { movieData, isLoading, getAllMovies, nextCursor, clearMovieData, getAllMoviesByName, getAllMoviesByRating, getAllMoviesByRelease, getAllMoviesByDuration } = useUserStore();
 
   useEffect(() => {
     getAllMovies()
 
   }, [])
 
-  const handleChange = async(e)=>{
+  const handleChange = async (e) => {
 
     setAge(e.target.value)
 
     clearMovieData()
-    if(e.target.value === "Name"){
+    if (e.target.value === "Name") {
       await getAllMoviesByName();
     }
-    if(e.target.value === "rating"){
+    if (e.target.value === "rating") {
       await getAllMoviesByRating();
     }
-    if(e.target.value === "release date"){
+    if (e.target.value === "release date") {
       await getAllMoviesByRelease();
     }
-    if(e.target.value === "duration"){
+    if (e.target.value === "duration") {
       await getAllMoviesByDuration();
     }
   }
   const handleSeeMore = async () => {
     await getAllMovies();
   }
+
+  if (isLoading && movieData.length === 0) {
+    return (
+      <div className='flex h-screen w-screen items-center justify-center'>
+        <Box sx={{ display: 'flex', alignItems: "center" }}>
+          <CircularProgress size={50} />
+        </Box>
+      </div>
+
+    );
+  }
+
   return (
     <div className="h-[90vh] flex flex-col">
 
