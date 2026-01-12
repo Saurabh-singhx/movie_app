@@ -2,7 +2,7 @@
   
   "scripts": {
     "dev":"node src/worker/worker.js",
-    "start": "node src/workers/worker.js"
+    "start": "node src/worker/worker.js"
   },
 
   "type": "module",
