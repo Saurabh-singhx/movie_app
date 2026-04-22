@@ -1,13 +1,14 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+dotenv.config();
 import cookieParser  from "cookie-parser";
 import { ConnectDB } from "./lib/db.js";
 import authRoutes from "./modules/auth/auth.routes.js"
 import userRoutes from "./modules/user/user.routes.js"
 import adminRoutes from "./modules/admin/admin.routes.js"
 const app = express();
-dotenv.config();
+
 
 
 const PORT = process.env.PORT;
@@ -28,9 +29,8 @@ app.use("/api/user",userRoutes);
 app.use("/api/admin",adminRoutes);
 
 
-app.listen(PORT,async()=>{
-    await ConnectDB();
-    console.log(`server is running on port : ${PORT}`);
-})
-
-
+// app.listen(PORT,async()=>{
+//     await ConnectDB();
+//     console.log(`server is running on port : ${PORT}`);
+// })
+export default app;
